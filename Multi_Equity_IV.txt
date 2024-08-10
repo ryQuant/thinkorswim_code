@@ -1,0 +1,33 @@
+declare lower;
+
+# Define the symbols
+input symbol1 = "CRWD";
+input symbol2 = "TSLA";
+input symbol3 = "MSTR";
+input symbol4 = "VIX";
+input symbol5 = "SPY";
+input symbol6 = "GLD";
+
+# Get the implied volatility for each symbol
+def iv1 = imp_volatility(symbol1);
+def iv2 = imp_volatility(symbol2);
+def iv3 = imp_volatility(symbol3);
+def iv4 = imp_volatility(symbol4);
+def iv5 = imp_volatility(symbol5);
+def iv6 = imp_volatility(symbol6);
+
+# Plot the implied volatility for each symbol
+plot IV_CRWD = iv1; IV_CRWD.SetDefaultColor(Color.GREEN); IV_CRWD.SetLineWeight(2);
+plot IV_TSLA = iv2; IV_TSLA.SetDefaultColor(Color.RED);   IV_TSLA.SetLineWeight(2);
+plot IV_MSTR = iv3; IV_MSTR.SetDefaultColor(Color.CYAN);  IV_MSTR.SetLineWeight(2);
+plot IV_VIX = iv4;  IV_VIX.SetDefaultColor(Color.WHITE);  IV_VIX.SetLineWeight(2);
+plot IV_SPY = iv5;  IV_SPY.SetDefaultColor(Color.VIOLET); IV_SPY.SetLineWeight(2);
+plot IV_GLD = iv6;  IV_GLD.SetDefaultColor(Color.YELLOW); IV_GLD.SetLineWeight(2);
+
+# Add labels to the chart
+AddLabel(yes, "CRWD IV: " + AsPercent(iv1), Color.GREEN);
+AddLabel(yes, "TSLA IV: " + AsPercent(iv2), Color.RED);
+AddLabel(yes, "MSTR IV: " + AsPercent(iv3), Color.CYAN);
+AddLabel(yes, "VIX  IV: " + AsPercent(iv4), Color.WHITE);
+AddLabel(yes, "SPY  IV: " + AsPercent(iv5), Color.VIOLET);
+AddLabel(yes, "GLD  IV: " + AsPercent(iv6), Color.YELLOW);
